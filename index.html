@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nozyx · Agência de motion design</title>
-<meta name="description" content="Nozyx é uma agência de motion design: animação, edição de vídeo, social media, anúncios e identidade em movimento. Peça seu orçamento pelo WhatsApp.">
+<meta name="description" content="Nozyx é uma agência de motion design: motion design, edição de vídeo e anúncios. Peça seu orçamento pelo WhatsApp.">
 <meta name="theme-color" content="#4A98FF">
 <meta property="og:title" content="Nozyx · Movimento que comunica">
-<meta property="og:description" content="Motion design, edição de vídeo e identidade em movimento para marcas que querem ser lembradas.">
+<meta property="og:description" content="Motion design, edição de vídeo e anúncios para marcas que querem ser lembradas.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -240,13 +240,13 @@ footer .brand{color:#fff;font-size:20px}
   .hero-grid,.about{grid-template-columns:1fr;gap:30px}
   .stage{max-width:340px;order:-1}
   .chip.c1{left:0}.chip.c2{right:0}
-  .cards{grid-template-columns:1fr 1fr}
+  .cards{grid-template-columns:1fr 1fr}.cards .card:last-child{grid-column:span 2}
   .steps{grid-template-columns:1fr 1fr;row-gap:40px}
   .line{display:none}
   .sec{padding:80px 0}
 }
 @media (max-width:600px){
-  .cards,.steps{grid-template-columns:1fr}
+  .cards,.steps{grid-template-columns:1fr}.cards .card:last-child{grid-column:auto}
   .nav .btn span{display:none}
   .nav .btn{padding:10px}
   .timeline .clip{font-size:10px}
@@ -363,10 +363,7 @@ footer .brand{color:#fff;font-size:20px}
     <div class="cards">
       <a class="card rv" data-wa="motion design" href="#" target="_blank" rel="noopener"><span class="glare"></span><span class="num">01</span><span class="ico"><svg><use href="#i-play"/></svg></span><h3>Motion design</h3><p>Animações que explicam seu produto em segundos e deixam a mensagem clara.</p><span class="go">Quero esse<svg><use href="#i-arrow"/></svg></span></a>
       <a class="card rv" data-wa="edição de vídeo" href="#" target="_blank" rel="noopener"><span class="glare"></span><span class="num">02</span><span class="ico"><svg><use href="#i-clap"/></svg></span><h3>Edição de vídeo</h3><p>Corte com ritmo, correção de cor, trilha e efeitos no tempo certo.</p><span class="go">Quero esse<svg><use href="#i-arrow"/></svg></span></a>
-      <a class="card rv" data-wa="vídeos para social media" href="#" target="_blank" rel="noopener"><span class="glare"></span><span class="num">03</span><span class="ico"><svg><use href="#i-insta"/></svg></span><h3>Social media</h3><p>Reels, stories e posts animados pensados para o feed e para o algoritmo.</p><span class="go">Quero esse<svg><use href="#i-arrow"/></svg></span></a>
-      <a class="card rv" data-wa="apresentações animadas" href="#" target="_blank" rel="noopener"><span class="glare"></span><span class="num">04</span><span class="ico"><svg><use href="#i-monitor"/></svg></span><h3>Apresentações</h3><p>Pitches e apresentações com transições que prendem a sala inteira.</p><span class="go">Quero esse<svg><use href="#i-arrow"/></svg></span></a>
-      <a class="card rv" data-wa="criativos para anúncios" href="#" target="_blank" rel="noopener"><span class="glare"></span><span class="num">05</span><span class="ico"><svg><use href="#i-mega"/></svg></span><h3>Anúncios</h3><p>Criativos curtos e diretos, feitos para parar o scroll e converter.</p><span class="go">Quero esse<svg><use href="#i-arrow"/></svg></span></a>
-      <a class="card rv" data-wa="identidade visual em movimento" href="#" target="_blank" rel="noopener"><span class="glare"></span><span class="num">06</span><span class="ico"><svg><use href="#i-layers"/></svg></span><h3>Identidade em movimento</h3><p>Logo animado, vinhetas e um kit visual pra marca se mexer igual em todo lugar.</p><span class="go">Quero esse<svg><use href="#i-arrow"/></svg></span></a>
+      <a class="card rv" data-wa="criativos para anúncios" href="#" target="_blank" rel="noopener"><span class="glare"></span><span class="num">03</span><span class="ico"><svg><use href="#i-mega"/></svg></span><h3>Anúncios</h3><p>Criativos curtos e diretos, feitos para parar o scroll e converter.</p><span class="go">Quero esse<svg><use href="#i-arrow"/></svg></span></a>
     </div>
   </div>
 </section>
@@ -481,7 +478,7 @@ addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
 // marquee
 (() => {
-  const words = ["Motion design", "Edição de vídeo", "Reels", "Anúncios", "Logo animado", "Apresentações", "Vinhetas", "Tipografia animada"];
+  const words = ["Motion design", "Edição de vídeo", "Reels", "Anúncios", "Logo animado", "Vinhetas", "Tipografia animada"];
   const one = words.map(w => `<span>${w}<i></i></span>`).join("");
   document.getElementById("marq").innerHTML = one + one;
 })();
