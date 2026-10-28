@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nozyx · Agência de motion design</title>
+<meta name="description" content="Nozyx é uma agência de motion design: animação, edição de vídeo, social media, anúncios e identidade em movimento. Peça seu orçamento pelo WhatsApp.">
+<meta name="theme-color" content="#4A98FF">
+<meta property="og:title" content="Nozyx · Movimento que comunica">
+<meta property="og:description" content="Motion design, edição de vídeo e identidade em movimento para marcas que querem ser lembradas.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#4A98FF; --mid:#6CB8FF; --light:#DDEEFF; --ink:#1F2430; --ice:#F8FAFC; --deep:#2F7BF5;
+  --font:"SF Pro Display","SF Pro Text","SF Pro",-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--ice);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+section{position:relative;overflow:hidden}
+
+/* ---------- header ---------- */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s,backdrop-filter .3s}
+header.scrolled{background:rgba(248,250,252,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(31,36,48,.06)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:24px;letter-spacing:-.04em}
+.brand svg{width:30px;height:30px;transition:transform .6s var(--ease)}
+.brand:hover svg{transform:rotate(-8deg) scale(1.1)}
+.links{display:flex;gap:28px;font-weight:500;font-size:15px}
+.links a{position:relative;opacity:.75;transition:opacity .2s}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--blue);border-radius:2px;transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+.links a:hover{opacity:1}.links a:hover::after{transform:scaleX(1);transform-origin:left}
+
+/* ---------- buttons ---------- */
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:700;font-size:16px;cursor:pointer;border:0;overflow:hidden;transition:transform .25s var(--ease),box-shadow .3s;will-change:transform;-webkit-tap-highlight-color:transparent}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 10px 30px -8px rgba(74,152,255,.7)}
+.btn-primary:hover{box-shadow:0 16px 40px -8px rgba(74,152,255,.9)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 2px var(--light)}
+.btn::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s var(--ease)}
+.btn:hover::before{transform:translateX(120%)}
+.btn .arrow{transition:transform .3s var(--ease)}
+.btn:hover .arrow{transform:translateX(4px)}
+.btn-sm{padding:10px 18px;font-size:14px}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;padding:120px 0 60px;display:flex;align-items:center;background:linear-gradient(180deg,#fff,#EEF5FF)}
+.grid-bg{position:absolute;inset:-80px;background-image:linear-gradient(rgba(74,152,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(74,152,255,.12) 1px,transparent 1px);background-size:80px 80px;animation:gridMove 12s linear infinite;mask-image:radial-gradient(ellipse at 60% 40%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 60% 40%,#000 30%,transparent 75%)}
+@keyframes gridMove{to{transform:translate(80px,80px)}}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;pointer-events:none}
+.orb.a{width:520px;height:520px;background:var(--mid);top:-120px;right:-80px;animation:float1 14s ease-in-out infinite}
+.orb.b{width:380px;height:380px;background:var(--blue);bottom:-140px;left:-100px;opacity:.35;animation:float2 18s ease-in-out infinite}
+@keyframes float1{50%{transform:translate(-80px,60px) scale(1.1)}}
+@keyframes float2{50%{transform:translate(90px,-50px) scale(.9)}}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 10px;border-radius:999px;background:#fff;box-shadow:0 0 0 1px var(--light),0 8px 20px -10px rgba(74,152,255,.5);font-weight:600;font-size:14px}
+.rec{width:10px;height:10px;border-radius:50%;background:#FF4D5E;box-shadow:0 0 0 0 rgba(255,77,94,.6);animation:rec 1.6s infinite}
+@keyframes rec{70%{box-shadow:0 0 0 10px rgba(255,77,94,0)}100%{box-shadow:0 0 0 0 rgba(255,77,94,0)}}
+h1{font-size:clamp(46px,7.4vw,96px);line-height:.98;letter-spacing:-.05em;font-weight:900;margin:22px 0 22px}
+h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em}
+h1 .w>span{display:inline-block;transform:translateY(105%);animation:wordUp .9s var(--ease) forwards}
+h1 .blue{color:var(--blue)}
+@keyframes wordUp{to{transform:none}}
+.lead{font-size:clamp(17px,1.6vw,20px);max-width:520px;color:rgba(31,36,48,.75)}
+.rot{display:inline-grid;color:var(--blue);font-weight:700;vertical-align:bottom}
+.rot span{grid-area:1/1;opacity:0;transform:translateY(60%);transition:opacity .45s,transform .6s var(--ease)}
+.rot span.on{opacity:1;transform:none}
+.rot span.out{opacity:0;transform:translateY(-60%)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+
+/* hero visual */
+.stage{position:relative;aspect-ratio:1/1;max-width:480px;width:100%;justify-self:center}
+.stage .nmark{position:absolute;inset:14%;cursor:pointer;filter:drop-shadow(0 30px 40px rgba(47,123,245,.35))}
+.nmark path{transform-box:fill-box;transform-origin:center}
+.nmark .pl{animation:inL 1.1s var(--ease) .3s both, bob 6s ease-in-out 1.6s infinite}
+.nmark .pr{animation:inR 1.1s var(--ease) .45s both, bob 6s ease-in-out 1.9s infinite}
+.nmark .pd{animation:inD 1.2s var(--ease) .6s both}
+@keyframes inL{from{transform:translateY(60%);opacity:0}}
+@keyframes inR{from{transform:translateY(-60%);opacity:0}}
+@keyframes inD{from{transform:translate(-40%,-40%) scale(.6);opacity:0}}
+@keyframes bob{50%{transform:translateY(-3%)}}
+.nmark.hit .pl{animation:hitL .8s var(--ease)}
+.nmark.hit .pr{animation:hitR .8s var(--ease)}
+.nmark.hit .pd{animation:hitD .8s var(--ease)}
+@keyframes hitL{40%{transform:translate(-14%,10%)}}
+@keyframes hitR{40%{transform:translate(14%,-10%)}}
+@keyframes hitD{40%{transform:scale(1.08) rotate(-4deg)}}
+.ring{position:absolute;inset:4%;border-radius:50%;border:2px dashed rgba(74,152,255,.35);animation:spin 30s linear infinite}
+.ring.r2{inset:-4%;border-style:solid;border-color:rgba(74,152,255,.12);animation-duration:50s;animation-direction:reverse}
+.ring i{position:absolute;width:16px;height:16px;background:var(--blue);transform:rotate(45deg);border-radius:3px;top:-8px;left:calc(50% - 8px);box-shadow:0 0 0 5px rgba(74,152,255,.2)}
+.ring.r2 i{background:var(--mid);width:12px;height:12px;top:calc(50% - 6px);left:-6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.chip{position:absolute;display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:14px;background:#fff;box-shadow:0 14px 30px -12px rgba(31,36,48,.25);font-weight:700;font-size:14px;white-space:nowrap;animation:chip 5s ease-in-out infinite}
+.chip svg{width:18px;height:18px;color:var(--blue)}
+.chip.c1{top:8%;left:-4%}
+.chip.c2{bottom:12%;right:-6%;animation-delay:-2.5s}
+.chip.c3{bottom:2%;left:6%;animation-delay:-1.2s;font-family:var(--mono);font-weight:500;font-size:12px;color:var(--deep)}
+@keyframes chip{50%{transform:translateY(-12px)}}
+
+/* timeline */
+.timeline{position:relative;margin-top:56px;background:var(--ink);border-radius:20px;padding:14px 16px 16px;color:#fff;box-shadow:0 30px 60px -30px rgba(31,36,48,.6)}
+.tl-head{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:12px;opacity:.85;margin-bottom:10px}
+.tl-head .dots{display:flex;gap:6px}.tl-head .dots i{width:10px;height:10px;border-radius:50%;background:#3A4152}
+.tl-head .dots i:first-child{background:#FF5F57}.tl-head .dots i:nth-child(2){background:#FEBC2E}.tl-head .dots i:nth-child(3){background:#28C840}
+.tc{color:var(--mid)}
+.tracks{position:relative;display:grid;gap:8px}
+.track{position:relative;height:26px;border-radius:6px;background:#2A303D}
+.clip{position:absolute;top:3px;bottom:3px;border-radius:5px;display:flex;align-items:center;padding:0 8px;font-size:11px;font-weight:600;white-space:nowrap;overflow:hidden;transition:filter .2s,transform .2s;cursor:pointer}
+.clip:hover{filter:brightness(1.15);transform:translateY(-1px)}
+.kf{position:absolute;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;background:#FEBC2E;transform:rotate(45deg);border-radius:2px;cursor:pointer;transition:transform .3s var(--ease)}
+.kf:hover{transform:rotate(45deg) scale(1.5)}
+.kf.spin{animation:kfSpin .7s var(--ease)}
+@keyframes kfSpin{to{transform:rotate(405deg) scale(1)}}
+.playhead{position:absolute;top:-6px;bottom:-4px;width:2px;background:#FF4D5E;left:0;pointer-events:none;box-shadow:0 0 12px #FF4D5E}
+.playhead::before{content:"";position:absolute;top:-4px;left:-6px;border:7px solid transparent;border-top-color:#FF4D5E}
+
+/* ---------- marquee ---------- */
+.marquee{overflow:hidden;background:var(--blue);color:#fff;padding:18px 0;transform:rotate(-2deg) scale(1.04);margin:20px 0;box-shadow:0 20px 40px -20px rgba(47,123,245,.7)}
+.marquee .row{display:flex;width:max-content;animation:marq 28s linear infinite}
+.marquee:hover .row{animation-play-state:paused}
+.marquee span{display:flex;align-items:center;gap:22px;padding-right:22px;font-size:clamp(22px,3vw,34px);font-weight:800;letter-spacing:-.03em;white-space:nowrap}
+.marquee span i{width:14px;height:14px;background:#fff;transform:rotate(45deg);border-radius:3px;opacity:.85}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- section titles ---------- */
+.sec{padding:110px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue)}
+.eyebrow::before{content:"";width:10px;height:10px;background:currentColor;transform:rotate(45deg);border-radius:2px}
+h2{font-size:clamp(36px,5.2vw,64px);line-height:1.02;letter-spacing:-.045em;font-weight:900;margin:14px 0 16px}
+h2 em{font-style:normal;color:var(--blue)}
+.sub{font-size:18px;color:rgba(31,36,48,.7);max-width:560px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- services ---------- */
+.shards{position:absolute;inset:0;pointer-events:none}
+.shards i{position:absolute;width:120px;height:420px;background:linear-gradient(180deg,rgba(108,184,255,.25),rgba(74,152,255,0));transform:skewX(-35deg);border-radius:12px;animation:shard 16s linear infinite}
+.shards i:nth-child(1){left:5%;top:-40%;animation-duration:18s}
+.shards i:nth-child(2){left:35%;top:-60%;width:60px;animation-duration:22s;animation-delay:-8s}
+.shards i:nth-child(3){left:70%;top:-50%;animation-duration:20s;animation-delay:-4s}
+.shards i:nth-child(4){left:90%;top:-70%;width:80px;animation-duration:26s;animation-delay:-12s}
+@keyframes shard{to{transform:skewX(-35deg) translateY(260%)}}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px;perspective:1000px}
+.card{position:relative;background:#fff;border-radius:26px;padding:30px;box-shadow:0 0 0 1px #E3ECF8,0 20px 40px -30px rgba(31,36,48,.3);transform-style:preserve-3d;transition:transform .2s ease-out,box-shadow .3s;cursor:pointer;overflow:hidden}
+.card:hover{box-shadow:0 0 0 2px var(--mid),0 30px 50px -25px rgba(74,152,255,.5)}
+.card.rv{transition:opacity .9s var(--ease),transform .5s var(--ease),box-shadow .3s}
+.card .glare{position:absolute;inset:0;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(108,184,255,.22),transparent 55%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover .glare{opacity:1}
+.ico{width:64px;height:64px;border-radius:18px;background:var(--light);color:var(--blue);display:grid;place-items:center;transition:background .3s,color .3s,transform .5s var(--ease);transform:translateZ(30px)}
+.ico svg{width:32px;height:32px}
+.card:hover .ico{background:var(--blue);color:#fff;transform:translateZ(40px) rotate(-8deg)}
+.ico.pop{animation:pop .7s var(--ease)}
+@keyframes pop{30%{transform:translateZ(40px) scale(.8) rotate(-20deg)}60%{transform:translateZ(40px) scale(1.2) rotate(15deg)}}
+.card h3{font-size:24px;letter-spacing:-.03em;margin:22px 0 8px;transform:translateZ(20px)}
+.card p{color:rgba(31,36,48,.7);font-size:16px}
+.card .go{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-weight:700;color:var(--blue);font-size:15px}
+.card .go svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+.card:hover .go svg{transform:translateX(5px)}
+.card .num{position:absolute;top:22px;right:26px;font-family:var(--mono);font-size:13px;color:rgba(31,36,48,.3)}
+
+/* ---------- process (dark) ---------- */
+.dark{background:var(--ink);color:#fff}
+.dark .sub{color:rgba(255,255,255,.65)}
+.dark .grid-bg{background-image:linear-gradient(rgba(108,184,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(108,184,255,.08) 1px,transparent 1px);mask-image:radial-gradient(ellipse at 50% 50%,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 20%,transparent 70%);animation-duration:20s}
+.pulse-orb{position:absolute;width:600px;height:600px;left:50%;top:50%;margin:-300px 0 0 -300px;border-radius:50%;background:radial-gradient(circle,rgba(74,152,255,.35),transparent 65%);animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.25);opacity:.6}}
+.steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:60px}
+.line{position:absolute;top:36px;left:36px;right:36px;height:3px;background:rgba(255,255,255,.1);border-radius:3px}
+.line b{position:absolute;inset:0;background:linear-gradient(90deg,var(--blue),var(--mid));border-radius:3px;transform-origin:left;transform:scaleX(var(--p,0));transition:transform .2s linear}
+.step{position:relative;cursor:pointer}
+.dot{position:relative;width:72px;height:72px;border-radius:22px;background:#2A303D;display:grid;place-items:center;color:var(--mid);transition:background .4s,color .4s,transform .5s var(--ease);box-shadow:0 0 0 6px var(--ink)}
+.dot svg{width:32px;height:32px}
+.step.lit .dot{background:var(--blue);color:#fff}
+.step:hover .dot{transform:translateY(-6px) rotate(6deg)}
+.dot.wob{animation:wob .8s var(--ease)}
+@keyframes wob{25%{transform:rotate(-14deg) scale(1.1)}50%{transform:rotate(10deg)}75%{transform:rotate(-5deg)}}
+.step small{display:block;font-family:var(--mono);color:var(--mid);margin:22px 0 6px;font-size:13px}
+.step h3{font-size:24px;letter-spacing:-.03em;margin-bottom:8px}
+.step p{color:rgba(255,255,255,.65);font-size:16px}
+
+/* ---------- values ---------- */
+.values{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.val{display:flex;align-items:center;gap:12px;padding:16px 24px;border-radius:999px;background:#fff;box-shadow:0 0 0 1px #E3ECF8;font-weight:700;font-size:18px;cursor:pointer;transition:transform .4s var(--ease),box-shadow .3s,background .3s,color .3s;user-select:none}
+.val svg{width:22px;height:22px;color:var(--blue);transition:transform .6s var(--ease),color .3s}
+.val:hover{transform:translateY(-4px) rotate(-2deg);box-shadow:0 0 0 2px var(--mid),0 16px 30px -16px rgba(74,152,255,.6)}
+.val:hover svg{transform:rotate(360deg)}
+.val.on{background:var(--blue);color:#fff}.val.on svg{color:#fff}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.waves{position:absolute;right:-5%;bottom:-10%;width:70%;opacity:.7;pointer-events:none}
+.waves path{fill:none;stroke:var(--blue);stroke-width:2;stroke-linecap:round;stroke-dasharray:14 10;animation:dash 3s linear infinite}
+.waves path:nth-child(2n){stroke:var(--mid);animation-duration:4s}
+@keyframes dash{to{stroke-dashoffset:-96}}
+.quote{position:relative;background:linear-gradient(135deg,#fff,#EAF3FF);border-radius:30px;padding:40px;box-shadow:0 0 0 1px #E3ECF8}
+.quote p{font-size:clamp(22px,2.4vw,30px);font-weight:700;letter-spacing:-.03em;line-height:1.25}
+.quote p em{font-style:normal;color:var(--blue)}
+.quote .sig{display:flex;align-items:center;gap:12px;margin-top:26px;font-weight:600;color:rgba(31,36,48,.7)}
+.quote .sig svg{width:36px;height:36px}
+
+/* ---------- final cta ---------- */
+.final{background:linear-gradient(135deg,#6FB4FF,var(--deep));color:#fff;text-align:center;padding:130px 0}
+.final .shards i{background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,0))}
+.final h2{font-size:clamp(40px,6.4vw,84px);max-width:900px;margin-inline:auto}
+.final h2 em{color:var(--ink)}
+.final .sub{color:rgba(255,255,255,.85);margin:0 auto 36px}
+.final .btn-dark{font-size:18px;padding:18px 32px}
+.bigN{position:absolute;width:520px;opacity:.1;right:-120px;bottom:-120px;animation:spinSlow 40s linear infinite}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+
+footer{background:var(--ink);color:rgba(255,255,255,.6);padding:36px 0 96px;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer .brand{color:#fff;font-size:20px}
+
+/* floating whatsapp */
+.fab{position:fixed;right:18px;bottom:18px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.7);transition:transform .3s var(--ease)}
+.fab svg{width:30px;height:30px}
+.fab::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:fabRing 2s ease-out infinite}
+.fab:hover{transform:scale(1.1) rotate(-8deg)}
+@keyframes fabRing{to{transform:scale(1.6);opacity:0}}
+
+/* pointer fx */
+.trail{position:fixed;width:10px;height:10px;margin:-5px 0 0 -5px;background:var(--blue);border-radius:2px;pointer-events:none;z-index:100;animation:trail .8s var(--ease) forwards}
+@keyframes trail{from{transform:rotate(45deg) scale(1)}to{transform:rotate(225deg) scale(0);opacity:0}}
+.burst{position:fixed;width:20px;height:20px;margin:-10px 0 0 -10px;border:2px solid var(--blue);border-radius:50%;pointer-events:none;z-index:100;animation:burst .6s var(--ease) forwards}
+@keyframes burst{to{transform:scale(4);opacity:0}}
+
+@media (max-width:900px){
+  .links{display:none}
+  .hero{padding-top:100px}
+  .hero-grid,.about{grid-template-columns:1fr;gap:30px}
+  .stage{max-width:340px;order:-1}
+  .chip.c1{left:0}.chip.c2{right:0}
+  .cards{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr;row-gap:40px}
+  .line{display:none}
+  .sec{padding:80px 0}
+}
+@media (max-width:600px){
+  .cards,.steps{grid-template-columns:1fr}
+  .nav .btn span{display:none}
+  .nav .btn{padding:10px}
+  .timeline .clip{font-size:10px}
+  .chip{font-size:12px;padding:8px 10px}
+  .chip.c3{display:none}
+  .stage{max-width:250px}
+  .hero{padding-top:84px;min-height:auto}
+  h1{margin:16px 0}
+  .quote{padding:28px}
+  .final{padding:100px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  h1 .w>span{transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gDiag" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="100">
+      <stop offset="0" stop-color="#7DC0FF"/><stop offset="1" stop-color="#2F7BF5"/>
+    </linearGradient>
+    <symbol id="n" viewBox="0 0 100 100">
+      <path d="M0 8 L28 48 L28 100 L0 100 Z" fill="#4A98FF"/>
+      <path d="M72 0 L100 0 L100 92 L72 52 Z" fill="#4A98FF"/>
+      <path d="M0 0 L30 0 L100 100 L70 100 Z" fill="url(#gDiag)"/>
+    </symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.43 9.43 0 0 1-1.45-5.03c0-5.2 4.24-9.44 9.45-9.44a9.38 9.38 0 0 1 6.68 2.77 9.38 9.38 0 0 1 2.76 6.68c0 5.21-4.24 9.44-9.45 9.44zm8.04-17.48A11.3 11.3 0 0 0 12.04.7C5.77.7.67 5.8.67 12.07c0 2 .52 3.96 1.52 5.68L.57 23.3l5.68-1.49a11.35 11.35 0 0 0 5.78 1.47h.01c6.27 0 11.37-5.1 11.37-11.37 0-3.04-1.18-5.89-3.33-8.04z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5.5 3.5-5.5 3.5z"/></g></symbol>
+    <symbol id="i-clap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="11" rx="2"/><path d="M3 9l1.5-4.6 16.5 0L21 9"/><path d="M8.5 4.5L7 9M13.5 4.5L12 9M18.5 4.5L17 9"/></g></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01" stroke-width="2.6"/></g></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="12.5" rx="2"/><path d="M12 16.5v3.5M8 20h8"/></g></symbol>
+    <symbol id="i-mega" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10v4a1 1 0 0 0 1 1H7l7 4.5v-15L7 9H4.5a1 1 0 0 0-1 1z"/><path d="M17.5 9a4 4 0 0 1 0 6M20 6.5a7.5 7.5 0 0 1 0 11"/></g></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 16.5l9 5 9-5"/></g></symbol>
+    <symbol id="i-brief" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></g></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4.5L16 4.5a2.1 2.1 0 0 1 3 3L8 18.5z"/><path d="M14 6.5l3 3"/></g></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 9-9 9-9-9z"/><path d="M12 8.5l3.5 3.5-3.5 3.5-3.5-3.5z"/></g></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2"/><path d="M9 15l-3-3c1.2-4.6 5-9 13-9 0 8-4.4 11.8-9 13z"/><circle cx="14.5" cy="9.5" r="1.6"/></g></symbol>
+    <symbol id="i-gem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4h11l3.5 5-9 11L3 9z"/><path d="M3 9h18M9.5 4L8 9l4 11 4-11-1.5-5"/></g></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></g></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><rect x="5.5" y="12" width="3" height="6"/><rect x="10.5" y="8" width="3" height="10"/><rect x="15.5" y="4" width="3" height="14"/></g></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2.5L4.5 13.5h6.5l-1 8 8.5-11h-6.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="Nozyx, início"><svg><use href="#n"/></svg>Nozyx</a>
+    <nav class="links">
+      <a href="#servicos">Serviços</a>
+      <a href="#processo">Processo</a>
+      <a href="#sobre">Sobre</a>
+    </nav>
+    <a class="btn btn-primary btn-sm mag" data-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>Falar no WhatsApp</span></a>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="grid-bg"></div>
+  <div class="orb a"></div><div class="orb b"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="pill"><i class="rec"></i>Agência de motion design</span>
+        <h1 id="kinetic">Sua marca merece <span class="blue">sair do lugar.</span></h1>
+        <p class="lead">A Nozyx cria vídeos, animações e criativos que geram <span class="rot" id="rot"><span class="on">movimento.</span><span>atenção.</span><span>lembrança.</span><span>resultado.</span></span><br>Do roteiro ao último keyframe, com a cara da sua marca.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary mag" data-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Pedir orçamento<svg class="arrow"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost mag" href="#servicos">Ver serviços</a>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="ring"><i></i></div>
+        <div class="ring r2"><i></i></div>
+        <svg class="nmark" id="nmark" viewBox="0 0 100 100" role="img" aria-label="Logo Nozyx, toque para animar">
+          <path class="pl" d="M0 8 L28 48 L28 100 L0 100 Z" fill="#4A98FF"/>
+          <path class="pr" d="M72 0 L100 0 L100 92 L72 52 Z" fill="#4A98FF"/>
+          <path class="pd" d="M0 0 L30 0 L100 100 L70 100 Z" fill="url(#gDiag)"/>
+        </svg>
+        <div class="chip c1"><svg><use href="#i-play"/></svg>Motion design</div>
+        <div class="chip c2"><svg><use href="#i-insta"/></svg>Reels que param o scroll</div>
+        <div class="chip c3">ease-out · 60fps</div>
+      </div>
+    </div>
+
+    <div class="timeline rv" aria-hidden="true">
+      <div class="tl-head"><span class="dots"><i></i><i></i><i></i></span><span>Comp · Sua marca</span><span class="tc" id="tc">00:00:00:00</span></div>
+      <div class="tracks" id="tracks">
+        <div class="track"><div class="clip" style="left:2%;width:30%;background:#4A98FF">Logo reveal</div><div class="clip" style="left:36%;width:40%;background:#2F7BF5">Cena principal</div><div class="clip" style="left:80%;width:18%;background:#6CB8FF;color:#1F2430">CTA</div></div>
+        <div class="track"><div class="clip" style="left:10%;width:52%;background:#7C5CFF">Tipografia animada</div><div class="clip" style="left:66%;width:26%;background:#9B84FF">Legendas</div></div>
+        <div class="track"><span class="kf" style="left:6%"></span><span class="kf" style="left:22%"></span><span class="kf" style="left:41%"></span><span class="kf" style="left:58%"></span><span class="kf" style="left:74%"></span><span class="kf" style="left:93%"></span></div>
+        <div class="track"><div class="clip" style="left:0;width:100%;background:#28C88A;color:#0E3A2A">♪ Trilha + efeitos sonoros</div></div>
+        <div class="playhead" id="playhead"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="row" id="marq"></div></div>
+
+<!-- SERVIÇOS -->
+<section class="sec" id="servicos">
+  <div class="shards"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <span class="eyebrow rv">Serviços</span>
+    <h2 class="rv">Tudo que sua marca precisa <em>pra se mexer.</em></h2>
+    <p class="sub rv">Escolha um serviço e chame direto no WhatsApp. A conversa já começa com o assunto certo.</p>
+    <div class="cards">
+      <a class="card rv" data-wa="motion design" href="#" target="_blank" rel="noopener"><span class="glare"></span><span class="num">01</span><span class="ico"><svg><use href="#i-play"/></svg></span><h3>Motion design</h3><p>Animações que explicam seu produto em segundos e deixam a mensagem clara.</p><span class="go">Quero esse<svg><use href="#i-arrow"/></svg></span></a>
+      <a class="card rv" data-wa="edição de vídeo" href="#" target="_blank" rel="noopener"><span class="glare"></span><span class="num">02</span><span class="ico"><svg><use href="#i-clap"/></svg></span><h3>Edição de vídeo</h3><p>Corte com ritmo, correção de cor, trilha e efeitos no tempo certo.</p><span class="go">Quero esse<svg><use href="#i-arrow"/></svg></span></a>
+      <a class="card rv" data-wa="vídeos para social media" href="#" target="_blank" rel="noopener"><span class="glare"></span><span class="num">03</span><span class="ico"><svg><use href="#i-insta"/></svg></span><h3>Social media</h3><p>Reels, stories e posts animados pensados para o feed e para o algoritmo.</p><span class="go">Quero esse<svg><use href="#i-arrow"/></svg></span></a>
+      <a class="card rv" data-wa="apresentações animadas" href="#" target="_blank" rel="noopener"><span class="glare"></span><span class="num">04</span><span class="ico"><svg><use href="#i-monitor"/></svg></span><h3>Apresentações</h3><p>Pitches e apresentações com transições que prendem a sala inteira.</p><span class="go">Quero esse<svg><use href="#i-arrow"/></svg></span></a>
+      <a class="card rv" data-wa="criativos para anúncios" href="#" target="_blank" rel="noopener"><span class="glare"></span><span class="num">05</span><span class="ico"><svg><use href="#i-mega"/></svg></span><h3>Anúncios</h3><p>Criativos curtos e diretos, feitos para parar o scroll e converter.</p><span class="go">Quero esse<svg><use href="#i-arrow"/></svg></span></a>
+      <a class="card rv" data-wa="identidade visual em movimento" href="#" target="_blank" rel="noopener"><span class="glare"></span><span class="num">06</span><span class="ico"><svg><use href="#i-layers"/></svg></span><h3>Identidade em movimento</h3><p>Logo animado, vinhetas e um kit visual pra marca se mexer igual em todo lugar.</p><span class="go">Quero esse<svg><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section class="sec dark" id="processo">
+  <div class="grid-bg"></div>
+  <div class="pulse-orb"></div>
+  <div class="wrap" style="position:relative">
+    <span class="eyebrow rv" style="color:var(--mid)">Processo</span>
+    <h2 class="rv">Da ideia ao play, <em>sem enrolação.</em></h2>
+    <p class="sub rv">Um caminho simples, com você acompanhando cada etapa.</p>
+    <div class="steps" id="steps">
+      <div class="line"><b id="lineFill"></b></div>
+      <div class="step rv"><span class="dot"><svg><use href="#i-brief"/></svg></span><small>01</small><h3>Conversa</h3><p>Você conta o objetivo, o público e onde o vídeo vai rodar.</p></div>
+      <div class="step rv"><span class="dot"><svg><use href="#i-pen"/></svg></span><small>02</small><h3>Roteiro e estilo</h3><p>Definimos a mensagem, as referências e o visual de cada cena.</p></div>
+      <div class="step rv"><span class="dot"><svg><use href="#i-key"/></svg></span><small>03</small><h3>Animação</h3><p>Tudo ganha vida, e você revisa antes da versão final.</p></div>
+      <div class="step rv"><span class="dot"><svg><use href="#i-rocket"/></svg></span><small>04</small><h3>Entrega</h3><p>Arquivos prontos no formato certo para feed, anúncio ou tela.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sec" id="sobre">
+  <svg class="waves" viewBox="0 0 600 200" aria-hidden="true">
+    <path d="M0 60 C120 10 220 10 300 60 S480 110 600 60"/>
+    <path d="M0 85 C120 35 220 35 300 85 S480 135 600 85"/>
+    <path d="M0 110 C120 60 220 60 300 110 S480 160 600 110"/>
+    <path d="M0 135 C120 85 220 85 300 135 S480 185 600 135"/>
+  </svg>
+  <div class="wrap about">
+    <div>
+      <span class="eyebrow rv">Sobre a Nozyx</span>
+      <h2 class="rv">Movimento <em>que comunica.</em></h2>
+      <p class="sub rv">Atendemos marcas, criadores, empresas e negócios locais e digitais que querem uma comunicação visual mais profissional. Toque nos valores que guiam cada projeto:</p>
+      <div class="values rv">
+        <span class="val"><svg><use href="#i-gem"/></svg>Clareza</span>
+        <span class="val"><svg><use href="#i-bulb"/></svg>Criatividade</span>
+        <span class="val"><svg><use href="#i-chart"/></svg>Impacto</span>
+        <span class="val"><svg><use href="#i-layers"/></svg>Consistência</span>
+        <span class="val"><svg><use href="#i-bolt"/></svg>Agilidade</span>
+      </div>
+    </div>
+    <div class="quote rv">
+      <p>Ninguém lembra de um post parado. A gente faz sua marca <em>ser vista, entendida e lembrada</em>, um frame de cada vez.</p>
+      <div class="sig"><svg><use href="#n"/></svg>Equipe Nozyx</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final" id="contato">
+  <div class="shards"><i></i><i></i><i></i><i></i></div>
+  <svg class="bigN" viewBox="0 0 100 100" aria-hidden="true"><use href="#n"/></svg>
+  <div class="wrap" style="position:relative">
+    <h2 class="rv">Bora colocar sua marca <em>em movimento?</em></h2>
+    <p class="sub rv">Manda sua ideia no WhatsApp. Respondemos com um caminho e um orçamento sob medida.</p>
+    <a class="btn btn-dark mag" data-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Chamar no WhatsApp<svg class="arrow"><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#inicio"><svg><use href="#n"/></svg>Nozyx</a>
+    <span>Agência de motion design · Movimento que comunica</span>
+    <span>© <span id="yr"></span> Nozyx</span>
+  </div>
+</footer>
+
+<a class="fab" data-wa href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg><use href="#i-wa"/></svg></a>
+
+<script>
+const WHATSAPP = "559884097838";
+const BASE = "Olá! Vim pelo Instagram da Nozyx e gostaria de fazer um orçamento.";
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// WhatsApp links (service cards add the chosen service to the message)
+document.querySelectorAll("[data-wa]").forEach(a => {
+  const s = a.dataset.wa;
+  const msg = s ? `Olá! Vim pelo Instagram da Nozyx e tenho interesse em ${s}.` : BASE;
+  a.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+});
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+// header
+const header = document.getElementById("top");
+const onScroll = () => header.classList.toggle("scrolled", scrollY > 10);
+addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+// kinetic headline: wrap each word so it slides up in sequence
+(() => {
+  const h = document.getElementById("kinetic");
+  let i = 0;
+  const wrap = (node, cls) => node.textContent.trim().split(/\s+/).map(w =>
+    `<span class="w${cls ? " " + cls : ""}"><span style="animation-delay:${0.15 + i++ * 0.09}s">${w}</span></span>`).join(" ");
+  const parts = [...h.childNodes].map(n => n.nodeType === 3 ? wrap(n) : wrap(n, "blue"));
+  h.innerHTML = parts.join(" ");
+})();
+
+// rotating word
+(() => {
+  const items = [...document.querySelectorAll("#rot span")];
+  let k = 0;
+  setInterval(() => {
+    const cur = items[k]; k = (k + 1) % items.length; const nxt = items[k];
+    cur.classList.remove("on"); cur.classList.add("out");
+    nxt.classList.remove("out"); nxt.classList.add("on");
+    setTimeout(() => cur.classList.remove("out"), 600);
+  }, 2200);
+})();
+
+// marquee
+(() => {
+  const words = ["Motion design", "Edição de vídeo", "Reels", "Anúncios", "Logo animado", "Apresentações", "Vinhetas", "Tipografia animada"];
+  const one = words.map(w => `<span>${w}<i></i></span>`).join("");
+  document.getElementById("marq").innerHTML = one + one;
+})();
+
+// timeline playhead + timecode (30 fps, 8s loop)
+(() => {
+  const ph = document.getElementById("playhead"), tc = document.getElementById("tc"), tracks = document.getElementById("tracks");
+  const DUR = 8000; let t0 = performance.now();
+  const pad = n => String(n).padStart(2, "0");
+  const tick = now => {
+    const p = ((now - t0) % DUR) / DUR;
+    ph.style.left = (p * 100) + "%";
+    const sec = p * 8, f = Math.floor((sec % 1) * 30);
+    tc.textContent = `00:00:${pad(Math.floor(sec))}:${pad(f)}`;
+    requestAnimationFrame(tick);
+  };
+  if (!reduce) requestAnimationFrame(tick);
+  tracks.addEventListener("click", e => {
+    const kf = e.target.closest(".kf");
+    if (kf) { kf.classList.remove("spin"); void kf.offsetWidth; kf.classList.add("spin"); return; }
+    // click on the timeline scrubs the playhead
+    const r = tracks.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+    t0 = performance.now() - p * DUR;
+  });
+})();
+
+// hero N: replay its pieces on tap
+(() => {
+  const n = document.getElementById("nmark");
+  n.addEventListener("click", () => { n.classList.remove("hit"); void n.getBoundingClientRect(); n.classList.add("hit"); });
+  n.addEventListener("animationend", e => { if (e.animationName.startsWith("hit")) n.classList.remove("hit"); });
+})();
+
+// reveal on scroll
+(() => {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  }), { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+  document.querySelectorAll(".rv").forEach((el, i) => {
+    const sib = [...el.parentElement.children].filter(c => c.classList.contains("rv")).indexOf(el);
+    el.style.transitionDelay = (sib * 0.08) + "s";
+    io.observe(el);
+  });
+})();
+
+// service cards: tilt + glare, icon pops on tap
+document.querySelectorAll(".card").forEach(c => {
+  c.addEventListener("pointermove", e => {
+    if (e.pointerType !== "mouse") return;
+    const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    c.style.transform = `rotateX(${(0.5 - y) * 10}deg) rotateY(${(x - 0.5) * 12}deg)`;
+    c.style.setProperty("--gx", x * 100 + "%"); c.style.setProperty("--gy", y * 100 + "%");
+  });
+  c.addEventListener("pointerleave", () => c.style.transform = "");
+  c.addEventListener("pointerdown", () => {
+    const ico = c.querySelector(".ico");
+    ico.classList.remove("pop"); void ico.offsetWidth; ico.classList.add("pop");
+  });
+});
+
+// process: line fills and steps light up while scrolling
+(() => {
+  const steps = document.getElementById("steps"), fill = document.getElementById("lineFill");
+  const items = [...steps.querySelectorAll(".step")];
+  const upd = () => {
+    const r = steps.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (innerHeight * 0.8 - r.top) / (r.height + innerHeight * 0.3)));
+    fill.style.setProperty("--p", p);
+    items.forEach((s, i) => s.classList.toggle("lit", p >= i / (items.length - 1) - 0.02));
+  };
+  addEventListener("scroll", upd, { passive: true }); upd();
+  items.forEach(s => s.addEventListener("click", () => {
+    const d = s.querySelector(".dot"); d.classList.remove("wob"); void d.offsetWidth; d.classList.add("wob");
+  }));
+})();
+
+// values toggle
+document.querySelectorAll(".val").forEach(v => v.addEventListener("click", () => v.classList.toggle("on")));
+
+// magnetic buttons
+document.querySelectorAll(".mag").forEach(b => {
+  b.addEventListener("pointermove", e => {
+    if (e.pointerType !== "mouse") return;
+    const r = b.getBoundingClientRect();
+    b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.25}px,${(e.clientY - r.top - r.height / 2) * 0.35}px)`;
+  });
+  b.addEventListener("pointerleave", () => b.style.transform = "");
+});
+
+// pointer trail of keyframe diamonds + tap burst (mouse and finger)
+if (!reduce) {
+  let last = 0;
+  const spawn = (x, y, cls) => {
+    const d = document.createElement("i"); d.className = cls;
+    d.style.left = x + "px"; d.style.top = y + "px";
+    if (cls === "trail" && Math.random() < 0.4) d.style.background = "#6CB8FF";
+    document.body.appendChild(d);
+    d.addEventListener("animationend", () => d.remove());
+  };
+  addEventListener("pointermove", e => {
+    const now = performance.now();
+    if (now - last < 45) return; last = now;
+    spawn(e.clientX, e.clientY, "trail");
+  }, { passive: true });
+  addEventListener("pointerdown", e => spawn(e.clientX, e.clientY, "burst"), { passive: true });
+}
+</script>
+</body>
+</html>
