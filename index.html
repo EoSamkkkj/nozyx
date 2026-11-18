@@ -191,8 +191,8 @@ h2 em{font-style:normal;color:var(--blue)}
 .gal-x:hover{background:var(--blue);transform:rotate(90deg)}
 .gal-stage{position:relative;display:flex;align-items:center;justify-content:center;width:100%}
 .gal-frame{position:relative;height:min(68vh,calc((100vw - 32px) * 16 / 9));aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#000;box-shadow:0 0 0 2px rgba(74,152,255,.6),0 30px 70px -20px rgba(74,152,255,.45)}
-.gal-frame video{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .25s}
-.gal-frame video.swap{opacity:0}
+.gal-frame iframe{width:100%;height:100%;border:0;display:block;transition:opacity .25s}
+.gal-frame iframe.swap{opacity:0}
 .gal-nav{position:absolute;top:50%;width:48px;height:48px;margin-top:-24px;border-radius:50%;border:0;background:#fff;color:var(--ink);display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 30px -10px rgba(0,0,0,.6);transition:transform .3s var(--ease),opacity .2s;z-index:2}
 .gal-nav svg{width:20px;height:20px}
 .gal-nav.prev{left:-64px}.gal-nav.prev svg{transform:scaleX(-1)}
@@ -438,7 +438,7 @@ footer .brand{color:#fff;font-size:20px}
     </div>
     <div class="gal-stage">
       <button class="gal-nav prev" id="galPrev" aria-label="Vídeo anterior"><svg><use href="#i-arrow"/></svg></button>
-      <div class="gal-frame"><video id="galVid" playsinline controls preload="metadata"></video></div>
+      <div class="gal-frame"><iframe id="galVid" title="Vídeo da Nozyx" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
       <button class="gal-nav next" id="galNext" aria-label="Próximo vídeo"><svg><use href="#i-arrow"/></svg></button>
     </div>
     <div class="gal-title" id="galTitle"></div>
@@ -637,20 +637,25 @@ document.querySelectorAll(".card").forEach(c => {
 // projetos: um card por vídeo, galeria com player e navegação
 (() => {
   const WORKS = [
-    { t: "Internet móvel 5G", k: "Anúncio 9:16", f: "vivo-5g" },
-    { t: "Marketplace de autopeças", k: "Tipografia animada", f: "syprus-v1" },
-    { t: "Plano de celular", k: "Anúncio 9:16", f: "tim-mais-a" },
-    { t: "Óptica e optometria", k: "Anúncio 9:16", f: "melhor-visao" },
-    { t: "Marketplace de autopeças", k: "Anúncio narrado", f: "syprus-seu-ze" },
-    { t: "Pacote de internet", k: "Anúncio 9:16", f: "claro-ativanet" },
+    { t: "Internet móvel 5G", k: "Anúncio 9:16", id: "1248031068", h: "723fb1308b", img: "https://i.vimeocdn.com/video/2227974597-ca3f40a20052134bdc9d0713b50db1d6e7f45df6400c36e9249b7f3a0c5f5693-d_540x960" },
+    { t: "Marketplace de autopeças", k: "Tipografia animada", id: "1248030898", h: "5da18429f3", img: "https://i.vimeocdn.com/video/2227974587-6d066ab674d89b4c947e28ad88c6fc5d8c6b97b09a11d1823f6e304dc4c420bc-d_540x960" },
+    { t: "Central do cliente", k: "Anúncio 9:16", id: "1248031227", h: "f22b1314be", img: "https://i.vimeocdn.com/video/2227974705-5af1dd9f42d60649a7c1e77485276ffe4d952b6d6245dbf4091ac4be9e393bc4-d_540x960" },
+    { t: "Óptica e optometria", k: "Anúncio 9:16", id: "1248030655", h: "9257b0b915", img: "https://i.vimeocdn.com/video/2227974302-415867b0919041f91e9fe3307647c7e245f44e875aaee8461ea0b5ef298feac4-d_540x960" },
+    { t: "Internet ilimitada", k: "Anúncio 9:16", id: "1248030996", h: "3f56ee3f37", img: "https://i.vimeocdn.com/video/2227974574-838a5067b88cc54c09308c3d75564cde90c3437b5551ce7fad6b0459924dc11d-d_540x960" },
+    { t: "Marketplace de autopeças", k: "Anúncio narrado", id: "1248030756", h: "d93de49fdd", img: "https://i.vimeocdn.com/video/2227974169-6e99348c59b4d6676b1849af71ed82342ff7e82418d0714855376def61274b91-d_540x960" },
+    { t: "Pacote de internet", k: "Anúncio 9:16", id: "1248030966", h: "8e5b01fd81", img: "https://i.vimeocdn.com/video/2227974606-22e8b2a0efba066eb8f82ea2bf6ecbfabd13bb67cbcc4d89476be6e6a3cb3a31-d_540x960" },
+    { t: "Motion design", k: "Vídeo 9:16", id: "1248030654", h: "97993048dd", img: "https://i.vimeocdn.com/video/2227974155-352079ffbfc780d424a56c2203feba1c2801a34145996d67b3718e22a805bb3d-d_540x960" },
+    { t: "Chip virtual eSIM", k: "Anúncio 9:16", id: "1248030909", h: "3684a17be4", img: "https://i.vimeocdn.com/video/2227974389-23e6e1be0ad63e550c6780bb72644c59a130c1996526cb86c0c7556ea57fef8f-d_540x960" },
+    { t: "Promoção de Black Friday", k: "Anúncio 9:16", id: "1248030658", h: "c44877e38b", img: "https://i.vimeocdn.com/video/2227973947-c459bad4e551265a6ef8657bd360e9f2525526449c0307e57fa70c1300e7fa5b-d_540x960" },
+    { t: "Marketplace de autopeças", k: "Anúncio 9:16", id: "1248030657", h: "2e7833a947", img: "https://i.vimeocdn.com/video/2227974270-84ac646f398046a209f268b4e9a55ea116d62cdf492a8239b33aa68f016320a8-d_540x960" },
   ];
-  const src = (f, ext) => `work/${f}.${ext}`;
+  const player = w => `https://player.vimeo.com/video/${w.id}?h=${w.h}&title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1&autoplay=1&playsinline=1`;
   const $ = id => document.getElementById(id);
   // leque com 5 capas: o do meio na frente
   const fan = $("worksFan");
   fan.innerHTML = [3, 1, 0, 2, 4].map(n => {
     const o = [0, -1, 1, -2, 2][n];
-    return `<img src="${src(WORKS[n].f, "jpg")}" alt="" loading="lazy" style="--o:${o};--a:${Math.abs(o)}">`;
+    return `<img src="${WORKS[n].img}" alt="" loading="lazy" style="--o:${o};--a:${Math.abs(o)}">`;
   }).join("");
   $("worksCount").textContent = `${WORKS.length} vídeos · toque para assistir`;
   $("openWorks").addEventListener("click", () => open(0));
@@ -659,7 +664,7 @@ document.querySelectorAll(".card").forEach(c => {
   const gal = $("gal"), vid = $("galVid"), prev = $("galPrev"), next = $("galNext"), thumbs = $("galThumbs");
   gal.hidden = false;
   $("galName").textContent = "Nossos trabalhos";
-  thumbs.innerHTML = WORKS.map(w => `<button aria-label="${w.t}, ${w.k}"><img src="${src(w.f, "jpg")}" alt=""></button>`).join("");
+  thumbs.innerHTML = WORKS.map(w => `<button aria-label="${w.t}, ${w.k}"><img src="${w.img}" alt="" loading="lazy"></button>`).join("");
   [...thumbs.children].forEach((b, n) => b.addEventListener("click", () => show(n)));
   let k = 0, lastFocus = null;
 
@@ -668,9 +673,8 @@ document.querySelectorAll(".card").forEach(c => {
     const w = WORKS[k];
     vid.classList.add("swap");
     setTimeout(() => {
-      vid.poster = src(w.f, "jpg"); vid.src = src(w.f, "mp4");
-      vid.classList.remove("swap");
-      vid.play().catch(() => {});
+      vid.src = player(w);
+      vid.onload = () => vid.classList.remove("swap");
     }, 180);
     $("galTitle").textContent = `${w.t} · ${w.k}`;
     $("galCount").textContent = `${k + 1} de ${WORKS.length}`;
@@ -683,7 +687,7 @@ document.querySelectorAll(".card").forEach(c => {
   };
   const close = () => {
     gal.classList.remove("open"); document.body.style.overflow = "";
-    vid.pause(); setTimeout(() => { if (!gal.classList.contains("open")) vid.removeAttribute("src"), vid.load(); }, 400);
+    vid.src = "about:blank";
     lastFocus && lastFocus.focus({ preventScroll: true });
   };
   prev.addEventListener("click", () => show(k - 1));
