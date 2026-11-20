@@ -688,7 +688,7 @@ document.querySelectorAll(".card").forEach(c => {
     ["art-03", "Loja de calçados", "Post de lançamento"], ["art-04", "Loja de calçados", "Post de promoção"],
     ["art-05", "Marketing digital", "Post de resultado"], ["art-06", "Marketing digital", "Carrossel"],
     ...[1, 2, 3, 4, 5, 6, 7, 8].map(n => [`autopecas-0${n}`, "Marketplace de autopeças", "Post para Instagram"]),
-  ].map(([f, t, k]) => ({ t, k, img: `artes/${f}-p.webp`, full: `artes/${f}.webp` }));
+  ].map(([f, t, k]) => ({ t, k, img: `artes/${f}-p.webp?v=2`, full: `artes/${f}.webp?v=2` }));
   const LISTS = { works: { name: "Nossos trabalhos", items: WORKS, art: false }, arts: { name: "Nossas artes", items: ARTS, art: true } };
   const player = w => `https://player.vimeo.com/video/${w.id}?h=${w.h}&title=0&byline=0&portrait=0&badge=0&vimeo_logo=0&dnt=1&autoplay=1&playsinline=1`;
   const $ = id => document.getElementById(id);
